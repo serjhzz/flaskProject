@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    {% block title -%}
+        {% if title %}
+            <title>{{title}}</title>
+        {% else %}
+            <title>Мой тестовый сайт</title>
+        {% endif %}
+    {% endblock %}
+</head>
+
+<body>
+{% block content -%}
+    {% if title -%}
+        <h1>{{title}}</h1>
+    {% else -%}
+        <h1>Ошибка передачи данных</h1>
+    {% endif -%}
+    {% endblock -%}
+</body>
+
+</html>

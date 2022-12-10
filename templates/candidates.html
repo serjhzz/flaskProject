@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <body>
+    {{ super() }}
+
+
+    <img src="{{ url }}" alt="Фото кандидата">
+
+    <pre>
+        Имя кандидата - {{ candidate.name }}
+        Позиция кандидата - {{ candidate.position }}
+        Навыки через запятую - {{ candidate.skills }}
+    </pre>
+
+    </body>
+
+{% endblock %}

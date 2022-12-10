@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {{ super() }}
+
+    <body>
+
+    {% for cand in candidates %}
+        <h4>
+        <pre>
+    Имя кандидата - {{ cand.name }}
+    Позиция кандидата - {{ cand.position }}
+    Навыки через запятую - {{ cand.skills }}
+        </pre>
+        </h4>
+    {% endfor %}
+
+    </body>
+
+{% endblock %}
