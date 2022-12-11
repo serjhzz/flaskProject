@@ -14,9 +14,8 @@ def get_all():
 
 @app.route('/candidates/<int:x>')
 def get_candidate_by_pk(x):
-    url = "http://mypictures.me/123"
     candidate = get_by_pk(candidates, x)
-    return render_template('candidates.html', title='Кандидат', candidate=candidate, url=url)
+    return render_template('candidates.html', title='Кандидат', candidate=candidate)
 
 
 @app.route('/skills/<x>')
