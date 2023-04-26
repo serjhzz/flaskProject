@@ -1,6 +1,8 @@
 from flask import Flask
+from flask_restx import Api
 
 from app.config import Config
+from app.database import db
 
 
 def create_app(config: Config) -> Flask:
@@ -10,8 +12,10 @@ def create_app(config: Config) -> Flask:
     return application
 
 
-app_config = Config()
-app = create_app(app_config)
+def configure_app(application: Flask):
+    db.init_app(application)
+    api = Api(application)
+    api.add_namespace('users')
 
 
 @app.route('/')
@@ -20,4 +24,7 @@ def hello_world():  # put application's code here
 
 
 if __name__ == '__main__':
+    app_config = Config()
+    app = create_app(app_config)
+    configure_app(app)
     app.run()
